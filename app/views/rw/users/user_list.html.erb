@@ -1,0 +1,32 @@
+<% title(t(:'users.title')) %>
+
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <span><%= t(:'users.title') %></span>
+  </div>
+
+  <div class="panel-body">
+    <%= link_to "<i class='fa fa-plus fa-lg'></i>".html_safe, rw.new_user_form_path,
+                remote: true,
+                class: 'btn	btn-primary btn-sm', title: I18n.t(:'titles.new') %>
+
+    <%= link_to("<i class='fa fa-trash fa-lg'></i>".html_safe, rw.destroy_user_path(id: '0'),
+                method: :delete,
+                class: 'btn btn-danger btn-sm delete-action',
+                id: 'delete-action-user',
+                data: {confirm: t(:'messages.r_u_sure')}, remote: true, title: I18n.t(:'titles.destroy')) %>
+
+    <%= link_to("<i class='fa fa-edit fa-lg'></i>".html_safe,
+                rw.edit_user_path(id: '0'),
+                class: 'btn btn-primary btn-sm edit-action',
+                id: 'edit-action-user',
+                remote: true, title: I18n.t(:'titles.edit')) %>
+        
+    <hr/>
+    <div class="table-responsive" id="user"><%= render 'list' %></div>
+  </div>
+</div>
+<br>
+
+<%= render 'shared/modal' %>
+

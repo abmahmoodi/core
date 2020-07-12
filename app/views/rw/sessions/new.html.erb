@@ -1,0 +1,40 @@
+<script>
+    $('.body').attr('class', 'body login');
+</script>
+
+<% title t(:'users.sign_in_title') %>
+<div class="logo">
+  <a href="/"><%= image_tag('logo.png', width: '20%') %></a>
+</div>
+<div class="content">
+  <%= simple_form_for(:user, url: sessions_path, method: :post, class: 'login-form') do |f| %>
+    <h3 class="form-title"><%= t(:'users.sign_in_title') %></h3>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9"><%= t(:'users.email') %></label>
+      <%= f.input :email, label: false, placeholder: t(:'users.email'),
+                  input_html: {class: 'form-control form-control-solid placeholder-no-fix'}, required: true %>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9"><%= t(:'users.password') %></label>
+      <%= f.input :password, label: false, placeholder: t(:'users.password'),
+                  input_html: {class: 'form-control form-control-solid placeholder-no-fix'}, required: true %>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :captcha, '', id: 'captcha_input', class: 'form-control' %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, t(:'buttons.sign_in'), class: 'btn green-seagreen uppercase' %>
+      <label class="rememberme check mt-checkbox mt-checkbox-outline">
+        <%= f.check_box :remember_me %><%= t(:'users.remember_me') %>
+        <span></span>
+      </label>
+      <br/>
+      <%= link_to t(:'users.forget_password'), new_reset_password_path, class: 'forget-password' %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+    $('#captcha_input').realperson({length: 4, regenerate: 'تغییر حروف کپچا'});
+</script>

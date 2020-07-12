@@ -1,0 +1,17 @@
+<% title(t(:'settings.title')) %>
+
+<h2><%= t(:'settings.title') %></h2>
+<hr>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <%= t(:'settings.title') %>
+  </div>
+  <hr/>
+  <div class="panel-body">
+    <%= simple_form_for(:settings, url: '/settings/save_setting', remote: true, method: :patch) do |f| %>
+      <span data-rw-hook='settings_input'></span>
+      <%= f.button :submit, t(:'buttons.save'), class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
+<br>

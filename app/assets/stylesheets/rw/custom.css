@@ -1,0 +1,116 @@
+.page-header.navbar {
+    background: #3B3F51;
+}
+
+.page-header.navbar .search-form {
+    background: #3B3F51;
+}
+
+.sweet-overlay {
+    z-index: 10051;
+}
+
+.sweet-alert {
+    z-index: 10052;
+}
+
+table.dataTable.order-column tbody > tr.selected > .sorting_1, table.dataTable.order-column tbody > tr.selected > .sorting_2,
+table.dataTable.order-column tbody > tr.selected > .sorting_3, table.dataTable.order-column tbody > tr > .selected,
+table.dataTable.display tbody > tr.selected > .sorting_1, table.dataTable.display tbody > tr.selected > .sorting_2,
+table.dataTable.display tbody > tr.selected > .sorting_3, table.dataTable.display tbody > tr > .selected {
+    background-color: #acbad5;
+}
+
+.sa-button-container {
+    direction: ltr;
+}
+
+.control-label .required, .form-group .required {
+    font-size: 14px;
+}
+
+.select2-container .select2-selection--single {
+    height: 34px;
+}
+
+.select2-container--classic .select2-selection--single .select2-selection__arrow {
+    height: 32px;
+}
+button.multiselect {
+    display: none !important;
+}
+.inner-dropdown-menu {
+    list-style: none;
+    margin-right: 10px;
+    display: none;
+}
+.inner-dropdown-menu li {
+    margin-bottom: 10px;
+    color: #777777;
+    margin-top: 10px;
+}
+.inner-dropdown-menu li:hover {
+    background-color: #ccc;
+}
+.inner-dropdown-menu li a {
+    color: #777777;
+    text-decoration: none;
+}
+.inner-dropdown-menu-pump {
+    list-style: none;
+    margin-right: 10px;
+    display: none;
+}
+.inner-dropdown-menu-pump li {
+    margin-bottom: 10px;
+    color: #777777;
+    margin-top: 10px;
+}
+.inner-dropdown-menu-pump li:hover {
+    background-color: #ccc;
+}
+.inner-dropdown-menu-pump li a {
+    color: #777777;
+    text-decoration: none;
+}
+div.top-elements .element-parent{
+    text-align: center;
+    /*padding: 5px;*/
+}
+div.top-elements .element-parent .element {
+    border: 1px solid #a0a0a0;
+    background-color: white;
+    border-radius: 2px;
+}
+div.top-elements .element-parent .element .element-title {
+    color: #a0a0a0;
+}
+div.top-elements .element-parent .element .element-value {
+    color: black;
+    font-size: 18px;
+}
+div.top-elements .element-parent .element .element-value span {
+    color: #a0a0a0;
+    font-size: 12px;
+}
+.chart-parent {
+    background-color: white;
+    margin-top: 10px;
+    padding: 20px;
+    box-shadow: 3px 3px 3px #999999;
+    border-radius: 4px;
+}
+.chart-parent p {
+    font-size: 16px;
+    color: #777777;
+}
+
+@media (max-width: 768px) {
+    .table .btn-group {
+        position: relative !important;
+    }
+
+    .table .btn-group.open .dropdown-menu {
+        position: static !important;
+    }
+}

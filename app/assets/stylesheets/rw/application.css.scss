@@ -1,0 +1,130 @@
+/*
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "font-awesome";
+@import "jquery-clockpicker";
+@import "select2.min";
+@import "simple-line-icons";
+@import "bootstrap-rtl";
+@import "bootstrap-switch-rtl.min";
+@import "sweetalert";
+@import "toastr-rtl";
+
+@import "morris";
+@import "components-rounded-rtl";
+@import "plugins-rtl.min";
+@import "layout-rtl.min";
+@import "default-rtl.min";
+
+@import "login-4-rtl.min";
+@import "profile-rtl";
+
+@import "bootstrap-multiselect";
+
+@import "jquery.Bootstrap-PersianDateTimePicker";
+@import "jquery.realperson";
+
+@import "datatables.min";
+@import "datatables.bootstrap-rtl";
+@import "buttons.dataTables.min";
+@import "custom";
+@import "spinner";
+
+
+.table>tbody>tr>td {
+  white-space: nowrap;
+}
+
+@font-face {
+  font-family: 'BKoodakBold';
+  src: url('../BKoodakBold.eot?#') format('eot'),  /* IE6–8 */
+  url('../BKoodakBold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../BKoodakBold.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'BHoma';
+  src: url('../BHoma.eot?#') format('eot'),  /* IE6–8 */
+  url('../BHoma.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../BHoma.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'BRoya';
+  src: url('../BRoya.eot?#') format('eot'),  /* IE6–8 */
+  url('../BRoya.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../BRoya.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'bmitra';
+  src: url('../BMitra.eot?#') format('eot'),  /* IE6–8 */
+  url('../BMitra.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../BMitra.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+  font-family: 'samim';
+  src: url('../Samim.eot?#') format('eot'),  /* IE6–8 */
+  url('../Samim.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+  url('../Samim.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+h1, h2, h3, h4 {
+  font-family: 'samim';
+}
+
+input, a, label, span, textarea, button, .dataTables_info, option, select,th,p, strong {
+  font-family: 'samim';
+}
+
+td {
+  font-family: samim;
+}
+
+.realperson-text {
+  direction: ltr;
+  text-align: center;
+}
+
+#flash {
+  //opacity: 0.9;
+  z-index: 99;
+}
+
+.alert:not(.payment) {
+  //box-shadow: 10px 10px 5px #888888;
+  font-family: 'samim';
+  font-size: 14px;
+  min-width: 250px;
+
+  opacity: 0.9;
+  position: fixed;
+  z-index: 1001;
+  text-align: center;
+  left: 0;
+}
+
+.datepicker-plot-area {
+  font-family: samim;
+  width: 260px;
+  border: 1px solid #0a4409;
+}
+
+.has-error {
+  font-size: 11px;
+}
+
+@media screen and (min-width: 768px) {
+  .select2-search--inline input {
+    width: 500px !important;
+  }
+}
+
+.chart,
+.pie,
+.bars {
+  height: 500px;
+}

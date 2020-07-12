@@ -1,0 +1,24 @@
+<%= simple_form_for(@agent_city, url: "/create_agent_city", remote: true, method: "post") do |f| %>
+  <%= f.input :user_id, label: false, as: :hidden, input_html: {value: @user_id} %>
+  <div class="form-group">
+    <%= f.select(:geo_location_id, options_from_collection_for_select(@selectable_city, :id, :title, @agent_city.geo_location_id),
+                 {include_blank: "None"}, {id: 'geo_location_id', class: 'form-control'}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit t('buttons.save'), class: 'btn green-seagreen' %>
+  </div>
+<% end %>
+<hr/>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#geo_location_id").select2({
+            placeholder: "انتخاب شهر",
+            theme: "classic",
+            width: "100%",
+            dir: "rtl",
+            language: "fa"
+        });
+
+    });
+</script>

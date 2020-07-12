@@ -1,0 +1,87 @@
+fa:
+  activemodel:
+    errors:
+      models:
+        rw/user:
+          attributes:
+            email:
+              invalid_email_address: 'آدرس ایمیل درست نیست'
+              taken: 'این آدرس ایمیل قبلا ثبت شده است'
+            password:
+              too_short: 'کلمه عبور خالی است و یا کوتاه است'
+            password_confirmation:
+              confirmation: 'کلمه عبور و تایید آن یکسان نیستند'
+        profile:
+          attributes:
+            first_name:
+              blank: 'نام نمیتواند خالی باشد'
+        geo_location:
+          attributes:
+            title:
+              blank: 'نام شهر نمیتواند خالی باشد'
+        user_code:
+          greater_than_or_equal_to: 'مقدار وارد شده باید بین عدد ۳ رقمی باشد'
+  activerecord:
+      errors:
+        models:
+          rw/user:
+            attributes:
+              email:
+                invalid_email_address: 'آدرس ایمیل درست نیست'
+                taken: 'این آدرس ایمیل قبلا ثبت شده است'
+              password:
+                too_short: 'کلمه عبور خالی است و یا کوتاه است'
+              password_confirmation:
+                confirmation: 'کلمه عبور و تایید آن یکسان نیستند'
+          geo_location:
+            attributes:
+              title:
+                taken: 'نام شهر تکراری است'
+  general:
+    dashboard: 'داشبورد'
+    company: 'به ساز انرژی'
+    user_type_title: 'نوع کاربر'
+    rubywebit: 'طراحی و توسعه توسط:'
+    support: 'پشتیبانی'
+    about: 'درباره ما'
+    help: 'راهنما'
+  buttons:
+    save: 'ذخیره'
+    sign_in: 'ورود'
+    send_reset_instructions: 'دستورالعمل تغییر کلمه عبور ارسال شود'
+    search: 'جستجو'
+    actions: 'عملیات'
+    delete: 'حذف'
+  navbar:
+    sign_in: 'ورود'
+    sign_out: 'خروج'
+    sign_up: 'ثبت نام'
+  titles:
+    user_type: 'تعیین نوع کاربر'
+    destroy: 'حذف'
+    base_info: 'اطلاعات پایه'
+    edit_user: 'ویرایش کاربر'
+    general: 'عمومی'
+    reports: 'گزارشات'
+    destroy: 'حذف'
+    edit: 'ویرایش'
+    new: 'جدید'
+  settings:
+    title: 'تنظیمات'
+  geo_locations:
+    title: 'شهرها'
+    province: 'استان'
+    city: 'شهر'
+    price_factor: 'ضریب قیمتی'
+    main_title: 'شهرها'
+    buttons:
+      new_geo_location: 'شهر جدید'
+  messages:
+    successful_save: 'ذخیره داده ها با موفقیت انجام شد.'
+    successful_destroy: 'حذف انجام شد.'
+    permission_denied: 'شما دسترسی لازم برای انجام این عملیات را ندارید.'
+    foreign_key_error: 'این داده در جای دیگری استفاده شده است.'
+    r_u_sure: 'آیا اطمینان دارید؟'
+    no_selection: 'هیچ ردیفی انتخاب نشده است.'
+    dependency_error: 'به دلیل وابستگی امکان حذف این ردیف وجود ندارد'
+

@@ -1,0 +1,9 @@
+<%= simple_form_for(:user_type, url: rw.assign_user_type_path,
+                    html: {class: 'form-inline', 'accept-charset': 'utf-8'}, remote: true, method: :patch) do |f| %>
+
+    <%= f.select :user_type_id, options_from_collection_for_select(@user_types, :id, :title),
+                 {include_blank: true}, {class: 'multiselect'} %>
+    <%= f.input :user_id, label: false, as: :hidden, input_html: {value: @id} %>
+
+    <%= f.button :submit, t(:'buttons.save'), class: 'btn btn-success' %>
+<% end %>

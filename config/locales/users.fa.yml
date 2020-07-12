@@ -1,0 +1,35 @@
+fa:
+  users:
+    code: 'شماره کاربر'
+    email: 'آدرس ایمیل'
+    password: 'کلمه عبور'
+    user_type: 'نوع کاربر'
+    password_confirmation: 'تایید کلمه عبور'
+    registration_title: 'ثبت نام'
+    sign_in_title: 'ورود به سایت'
+    change_password_title: 'تغییر کلمه عبور'
+    remember_me: 'به خاطر بسپار'
+    forget_password: 'بازیابی کلمه عبور'
+    title: 'لیست کاربران'
+    last_login: 'آخرین ورود'
+    login_count: 'تعداد ورود'
+    agent_city: 'شهر نماینده'
+    buttons:
+      new_user: 'کاربر جدید'
+  profiles:
+    first_name: 'نام'
+    last_name: 'نام خانوادگی'
+  messages:
+    sign_in: 'خوش آمدید'
+    sign_in_error: 'آدرس ایمیل و یا کلمه عبور اشتباه است'
+    sign_out: 'خروج موفق'
+    not_authenticated: 'لطفا وارد شوید.'
+    reset_password: 'پیام مربوط به تغییر کلمه عبور ارسال شد.'
+    password_changed: 'کلمه عبور با موفقیت تغییر کرد.'
+    successful_save: 'ذخیره داده ها با موفقیت انجام شد.'
+    successful_destroy: 'حذف انجام شد.'
+    user_activation_notice: 'یک ایمیل حاوی اطلاعات فعالسازی کاربر به ایمیل شما ارسال شد'
+    activated: 'فعالسازی کاربر انجام شد.'
+    not_activated: 'امکان فعالسازی این کاربر وجود ندارد.'
+  tooltips:
+    destroy: 'حذف'

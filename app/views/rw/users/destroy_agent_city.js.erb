@@ -1,0 +1,12 @@
+$('#flash').html("<%= j(render 'shared/flash_messages') %>");
+<% if !@error %>
+    setTimeout(function() {
+        $('#agent_city_form').html("<%= j render 'agent_city_form'  %>");
+    }, 500);
+
+    $('#list_agent_city').html("<%= j render 'list_agent_city' %>");
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});

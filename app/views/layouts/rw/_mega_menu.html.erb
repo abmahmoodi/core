@@ -1,0 +1,79 @@
+<div class="navbar navbar-default yamm " role="navigation" id="navbar">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand home" href="/" data-animate-hover="bounce">
+        <%= image_tag '', width: '100', class: 'hidden-xs' %>
+      </a>
+      <div class="navbar-buttons">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-align-justify"></i>
+        </button>
+      </div>
+    </div>
+    <!--/.navbar-header -->
+
+    <div class="navbar-collapse collapse" id="navigation" style="float: right">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="active" style="float: right"><%= link_to "<i class='fa fa-home fa-lg'></i>".html_safe, '/' %>
+        </li>
+        <% if current_user %>
+          <li class="dropdown yamm-fw" style="float: right">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">مدیریت <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li>
+              <div class="yamm-content">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h5><i class='fa fa-users'></i> کاربران</h5>
+                    <ul>
+                      <li><%= link_to "<i class='fa fa-user'></i> #{t(:'users.title')}".html_safe, '/user_list' %></li>
+                      <li><%= link_to "<i class='fa fa-building'></i> #{t(:'geo_locations.title')}".html_safe, rw.geo_locations_path %></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-sm-3">
+                    <h5><i class='fa fa-cogs'></i> <%= t(:'settings.main_title') %></h5>
+                    <ul>
+                      <li><%= link_to "<i class='fa fa-cog'></i> #{t(:'settings.title')}".html_safe, '#' %></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <% end %>
+        <span data-rw-hook='app-menu'></span>
+      </ul>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navigation" style="float: left">
+      <ul class="nav navbar-nav navbar-left">
+        <% if current_user %>
+            <li class="dropdown yamm-fw" style="float: right">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">حساب کاربری <%= current_user.email %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="yamm-content">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <ul>
+                          <li><%= link_to "<i class='fa fa-sign-out'></i> #{t(:'navbar.sign_out')}".html_safe, rw.log_out_path, method: :delete %></li>
+                          <li><a href="#"><i class='fa fa-user'></i> پروفایل من</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <span data-rw-hook='alarm'></span>
+        <% else %>
+            <li><%= link_to t(:'navbar.sign_up'), sign_up_path %></li>
+            <li><%= link_to t(:'navbar.sign_in'), log_in_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

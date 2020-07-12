@@ -1,0 +1,6 @@
+fa:
+  agent_city:
+    main_title: 'نماینده شهر'
+    city: 'شهر'
+    buttons:
+      new_agent_city: 'شهر جدید'

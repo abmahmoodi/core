@@ -1,0 +1,20 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover table-checkable order-column" id="agent_city_list"
+         data-source="<%= rw.agent_city_datatable_path(format: 'json', user_id: @user_id) %>">
+    <thead>
+    <th></th>
+    <th><%= t(:'agent_city.city') %></th>
+    <th><%= t(:'buttons.actions') %></th>
+    <th></th>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>
+
+<script>
+    require(["/assets/rw/run_datatable"], function () {
+        RunDatatable('agent_city_list', null, 3);
+    });
+</script>

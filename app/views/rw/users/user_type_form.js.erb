@@ -1,0 +1,8 @@
+<%= render partial: 'shared/show_modal', locals: {modal_partial: 'user_type_form', modal_title: t(:'general.user_type_title') } %>
+
+$('.multiselect').multiselect({
+    enableFiltering: true,
+    filterPlaceholder: 'جستجو',
+    buttonWidth: '300px',
+    maxHeight: 200
+});

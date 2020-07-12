@@ -1,0 +1,24 @@
+<% title t(:'users.change_password_title') %>
+
+<div class="col-md-6 col-md-offset-3 text-center top-buffer">
+  <div class="panel panel-info ">
+    <div class="panel-heading">
+      <h2 class="panel-title"><%= t(:'users.change_password_title') %></h2>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12" >
+          <%= simple_form_for :user, url: reset_passwords_path, method: :post do |f| %>
+              <div class="form-group">
+                <%= f.input :email, label: false, placeholder: t(:'users.email'), input_html: {class: 'form-control', required: true} %>
+              </div>
+
+              <%= f.button :submit, t('buttons.send_reset_instructions'), class: 'btn btn-primary btn-lg' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

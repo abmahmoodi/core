@@ -1,0 +1,167 @@
+<div class="page-sidebar-wrapper">
+  <div class="page-sidebar navbar-collapse collapse">
+    <div class="">
+      <a href="/">
+        <%= image_tag('logo.png', alt: 'logo', class: 'logo-default', width: '100%') %> </a>
+
+    </div>
+
+    <ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+      <li class="nav-item start ">
+        <%= link_to("<i class='icon-home'></i> <span class='title'>#{t(:'general.dashboard')}</span>".html_safe, rw.root_path) %>
+      </li>
+      <li class="heading">
+        <h3 class="uppercase">ویژگی ها</h3>
+      </li>
+      <li class="nav-item  <%= %w(rw/geo_locations rw/users).include?(params[:controller]) ? 'active open' : '' %>">
+        <%= link_to("<i class='fa fa-users'></i> <span class='title'>#{t(:'main_menu.lookup')}</span>
+              <span class='#{%w(rw/geo_locations rw/users).include?(params[:controller]) ? "arrow open" : 'arrow'}'></span>".html_safe,
+                    "javascript:;", class: 'nav-link nav-toggle') %>
+        <ul class="sub-menu">
+          <% if current_user.admin? %>
+            <li class="nav-item  <%= params[:controller] == 'rw/geo_locations' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'geo_locations.main_title')}</span>".html_safe, rw.geo_locations_path, class: 'nav-link ') %>
+            </li>
+          <% end %>
+          <% if current_user.admin? || current_user.building_manager? %>
+            <li class="nav-item  <%= params[:controller] == 'rw/users' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'users.title')}</span>".html_safe, rw.user_list_path, class: 'nav-link ') %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+      <% if current_user.admin? %>
+        <li class="nav-item  <%= '%w(rw/panel/buildings rw/panel/devices rw/panel/calculation_types rw/panel/bills
+        rw/panel/admin_settings rw/panel/step_headers rw/panel/messages rw/panel/project_imports rw/panel/user_credits)'.include?(
+            params[:controller]) ? 'active open' : '' %>">
+          <%= link_to("<i class='fa fa-cogs'></i> <span class='title'>#{t(:'main_menu.configuration')}</span>
+        <span class='#{'%w(rw/panel/buildings rw/panel/devices rw/panel/calculation_types rw/panel/bills
+        rw/panel/admin_settings rw/panel/step_headers rw/panel/messages rw/panel/project_imports rw/panel/user_credits)'.include?(
+              params[:controller]) ? "arrow open" : 'arrow'}'></span>".html_safe,
+                      "javascript:;", class: 'nav-link nav-toggle') %>
+
+          <ul class="sub-menu">
+            <% if current_user.admin? || current_user.building_manager? %>
+              <li class="nav-item  <%= params[:controller] == 'rw/panel/buildings' ? 'active open' : '' %>">
+                <%= link_to("<span class='title'>#{t(:'buildings.main_title')}</span>".html_safe, rw.buildings_path, class: 'nav-link ') %>
+              </li>
+            <% end %>
+            <% if current_user.admin? %>
+              <li class="nav-item <%= (params[:controller] == 'rw/panel/devices' && params[:action] == 'index') ? 'active open' : '' %> ">
+                <%= link_to("<span class='title'>#{t(:'devices.main_title')}</span>".html_safe, rw.devices_path, class: 'nav-link ') %>
+              </li>
+              <li class="<%= (params[:controller] == 'rw/panel/devices' && params[:action] == 'remove_data_form') ? 'active' : '' %>">
+                <%= link_to "<span class='title'></i> #{t(:'devices.remove_data.main_title')}".html_safe, rw.devices_remove_data_form_devices_path %>
+              </li>
+              <li class="nav-item <%= params[:controller] == 'rw/panel/calculation_types' ? 'active open' : '' %> ">
+                <%= link_to("<span class='title'>#{t(:'calculation_types.main_title')}</span>".html_safe,
+                            rw.calculation_types_path, class: 'nav-link ') %>
+              </li>
+              <li class="nav-item <%= params[:controller] == 'rw/panel/step_headers' ? 'active open' : '' %> ">
+                <%= link_to("<span class='title'>#{t(:'step_headers.main_title')}</span>".html_safe,
+                            rw.step_headers_path, class: 'nav-link ') %>
+              </li>
+            <% end %>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/messages' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'messages.main_title')}</span>".html_safe,
+                          rw.messages_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/project_imports' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'project_imports.main_title')}</span>".html_safe,
+                          rw.project_imports_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/user_credits' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'user_credits.main_title')}</span>".html_safe,
+                          rw.user_credits_path, class: 'nav-link ') %>
+            </li>
+            <!--          <li class="nav-item  ">-->
+            <%#= link_to("<span class='title'>#{t(:'apartments.main_title')}</span>".html_safe, rw.apartments_path, class: 'nav-link ') %>
+            <!--          </li>-->
+
+            <!--          <li class="nav-item  ">-->
+            <%#= link_to("<span class='title'>#{t(:'bills.main_title')}</span>".html_safe, rw.bills_path, class: 'nav-link ') %>
+            <!--          </li>-->
+          </ul>
+        </li>
+
+
+      <% end %>
+
+      <% if current_user.building_manager? %>
+        <li class="nav-item  <%= '%w(rw/panel/sharings rw/panel/settings rw/panel/buildings rw/panel/bills
+        rw/panel/costs rw/panel/messages rw/panel/polls rw/panel/user_payments)'.include?(params[:controller]) ? 'active open' : '' %>">
+          <%= link_to("<i class='fa fa-building'></i> <span class='title'>#{t(:'main_menu.building_management')}</span>
+        <span class='#{'%w(rw/panel/sharings rw/panel/settings rw/panel/buildings rw/panel/bills rw/panel/costs
+        rw/panel/messages rw/panel/polls rw/panel/user_payments)'.include?(params[:controller]) ? "arrow open" : 'arrow'}'></span>".html_safe,
+                      "javascript:;", class: 'nav-link nav-toggle') %>
+
+          <ul class="sub-menu">
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/buildings' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'buildings.main_title')}</span>".html_safe,
+                          rw.buildings_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item <%= params[:controller] == 'rw/panel/bills' && params[:action] == 'index' ? 'active open' : '' %> ">
+              <%= link_to("<span class='title'>#{t(:'bills.main_title')}</span>".html_safe,
+                          rw.bills_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item <%= params[:controller] == 'rw/panel/bills' && params[:action] == 'bill_by_apartment' ? 'active open' : '' %> ">
+              <%= link_to("<span class='title'>#{t(:'calculations.main_title')}</span>".html_safe,
+                          rw.bill_by_apartment_path, class: 'nav-link ') %>
+            </li>
+
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/messages' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'messages.main_title')}</span>".html_safe,
+                          rw.messages_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/costs' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'sharings.costs_title')}</span>".html_safe,
+                          rw.costs_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/sharings' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'sharings.main_title')}</span>".html_safe,
+                          rw.sharings_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/polls' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'polls.main_title')}</span>".html_safe,
+                          rw.polls_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= params[:controller] == 'rw/panel/user_payments' ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'user_payments.main_title')}</span>".html_safe,
+                          rw.user_payments_path, class: 'nav-link ') %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
+      <% if current_user.building_manager? || current_user.admin? %>
+        <li class="nav-item  <%= '%w(rw/panel/reports)'.include?(params[:controller]) ? 'active open' : '' %>">
+          <%= link_to("<i class='fa fa-bar-chart'></i> <span class='title'>#{t(:'reports.main_title')}</span>
+          <span class='#{'%w(rw/panel/reports)'.include?(params[:controller]) ? "arrow open" : 'arrow'}'></span>".html_safe,
+                      "javascript:;", class: 'nav-link nav-toggle') %>
+          <ul class="sub-menu">
+            <li class="nav-item  <%= (params[:controller] == 'rw/panel/reports' && params[:action] == 'consumption_report_form') ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'reports.consumption_report')}</span>".html_safe, rw.consumption_report_form_path, class: 'nav-link ') %>
+            </li>
+            <li class="nav-item  <%= (params[:controller] == 'rw/panel/reports' && params[:action] == 'consumption_daily_form') ? 'active open' : '' %>">
+              <%= link_to("<span class='title'>#{t(:'reports.consumption_daily')}</span>".html_safe, rw.consumption_daily_form_path, class: 'nav-link ') %>
+            </li>
+            <% unless current_user.admin? %>
+              <li class="nav-item  <%= (params[:controller] == 'rw/panel/reports' && params[:action] == 'device_errors_building') ? 'active open' : '' %>">
+                <%= link_to("<span class='title'>#{t(:'reports.device_errors_building')}</span>".html_safe, rw.device_errors_building_path, class: 'nav-link ') %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+      <li class="nav-item start ">
+        <%= link_to("<i class='fa fa-phone'></i> <span class='title'>#{t(:'general.support')}</span>".html_safe, rw.support_path) %>
+      </li>
+      <li class="nav-item start ">
+        <%= link_to("<i class='fa fa-info'></i> <span class='title'>#{t(:'general.about')}</span>".html_safe, rw.about_path) %>
+      </li>
+      <li class="nav-item start ">
+        <%= link_to("<i class='fa fa-info'></i> <span class='title'>#{t(:'general.help')}</span>".html_safe, rw.help_path) %>
+      </li>
+    </ul>
+    <!-- END SIDEBAR MENU -->
+  </div>
+</div>

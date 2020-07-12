@@ -1,0 +1,17 @@
+<%= simple_form_for(@geo_location, url: url_value, remote: true, method: method_value) do |f| %>
+    <div class="form-group">
+      <%= f.input :parent_id, label: false, collection: Rw::GeoLocation.provinces, value_method: :id,
+                  label_method: :title, placeholder: t(:'geo_locations.province'),
+                  input_html: {class: 'form-control'}, include_blank: false %>
+    </div>
+    <div class="form-group">
+      <%= f.input :title, label: false, placeholder: t(:'geo_locations.city'), input_html: {class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.input :price_factor, label: false, placeholder: t(:'geo_locations.price_factor'), input_html: {class: 'form-control'} %>
+    </div>
+    <%= f.input :root, label: false, as: :hidden, input_html: {value: 1} %>
+    <div class="actions">
+      <%= f.button :submit, t('buttons.save'), class: 'btn-success' %>
+    </div>
+<% end %>

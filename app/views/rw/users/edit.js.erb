@@ -1,0 +1,2 @@
+<%= render partial: 'shared/show_modal', locals: {modal_partial: 'form', modal_title: t(:'titles.edit_user'),
+    local_vars: {method_value: 'patch', remote_value: true, url_value: "/users/#{@user.id}"}} %>

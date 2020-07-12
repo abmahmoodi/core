@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+  <meta name="description" content="مانیتورینگ انرژی و مدیریت ساختمان">
+  <meta name="author" content="rw Team">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="turbolinks-cache-control" content="no-cache">
+  <meta name="enamad" content="203596">
+
+  <title>به ساز انرژی - <%= yield(:title) %></title>
+
+  <%= stylesheet_link_tag 'rw/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'rw/application', 'data-turbolinks-track': 'reload' %>
+
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body class="body">
+<div class="loading-spinner" style="display: none;"></div>
+<% if current_user %>
+  <%= render 'layouts/rw/navbar' %>
+<% end %>
+<div class="page-container">
+  <% if current_user %>
+    <%= render 'layouts/rw/sidebar' %>
+    <div class="page-content-wrapper">
+      <div id="flash" class="">
+        <%= render 'shared/flash_messages' %>
+      </div>
+      <div class="page-content">
+        <%= yield %>
+      </div>
+    </div>
+<% else %>
+    <%= yield %>
+  <% end %>
+</div>
+
+</body>
+<div class="page-footer-fixed text-center" style="height: 20px;">
+  <p style="padding-top: 10px; font-size: 10px" class="text-center"><%= "#{t(:'general.rubywebit')} #{link_to('Rubywebit', 'http://rubywebit.com', target: '_blank')}".html_safe %></p>
+</div>
+
+</html>
+<% if current_user %>
+  <script>
+      $('.body').attr('class', 'page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed');
+      jQuery(document).ready(function () {
+          $.backstretch("destroy");
+      });
+
+  </script>
+<% else %>
+  <script>
+      $('.body').attr('class', 'body login');
+      $(document).on('turbolinks:load', function () {
+          Login.init();
+      });
+  </script>
+<% end %>

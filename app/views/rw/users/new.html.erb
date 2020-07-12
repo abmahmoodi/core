@@ -1,0 +1,11 @@
+<% title t(:'users.registration_title') %>
+<script>
+    $('.body').attr('class', 'body login');
+</script>
+
+<div class="logo">
+  <a href="/"><%= image_tag('logo.png', width: '20%') %></a>
+</div>
+<div class="content">
+  <%= render 'form' %>
+</div>

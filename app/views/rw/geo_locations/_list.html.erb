@@ -1,0 +1,19 @@
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover table-checkable order-column"
+         id="geo_location_list" data-source="<%= rw.geo_location_datatable_path(format: 'json') %>">
+    <thead>
+    <th></th>
+    <th><%= t(:'geo_locations.province') %></th>
+    <th><%= t(:'geo_locations.city') %></th>
+    <th></th>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>
+<script>
+    require(["/assets/rw/run_datatable"], function () {
+        RunDatatable('geo_location_list', null, 3);
+    });
+</script>

@@ -1,0 +1,3 @@
+= Core
+To write fast and better code in Ruby on Rails.
+This project rocks and uses MIT-LICENSE.

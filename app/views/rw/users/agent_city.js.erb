@@ -1,0 +1,9 @@
+<%= render partial: 'shared/show_modal', locals: {modal_partial: 'agent_city', modal_title: t(:'agent_city.main_title'),
+            local_vars: {method_value: 'post', url_value: '/create_agent_city'}} %>
+
+setTimeout(function() {
+    require(["/assets/rw/run_datatable"], function () {
+        RunDatatable('agent_city_list', null, null);
+    });
+}, 200);
+

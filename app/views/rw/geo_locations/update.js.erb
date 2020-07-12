@@ -1,0 +1,16 @@
+<% if @error %>
+    <%= render 'shared/modal_hide_and_flash' %>
+<% else %>
+    <% if !@error_keys %>
+        <%= render 'shared/modal_hide_and_flash' %>
+        $('#geo_location').html("<%= j render 'list' %>");
+    <% else %>
+        require(["/assets/rw/ujs_error_handler"],function(){
+            HandleError('geo_location', <%= raw @error_keys %>, <%= raw @complete_errors %>);
+        });
+    <% end %>
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});

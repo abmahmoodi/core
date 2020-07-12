@@ -1,0 +1,14 @@
+$('#flash').html("<%= j(render 'shared/flash_messages') %>");
+<% if !@error %>
+    $('#geo_location').html("<%= j render 'list' %>");
+
+    setTimeout(function() {
+        require(["/assets/rw/run_datatable"],function(){
+            RunDatatable('geo_location_list');
+        });
+    }, 500);
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});

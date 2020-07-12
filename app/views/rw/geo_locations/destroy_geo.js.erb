@@ -1,0 +1,8 @@
+$('#flash').html("<%= j(render 'shared/flash_messages') %>");
+<% if !@error %>
+    $('#geo_location').html("<%= j render 'list' %>");
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});

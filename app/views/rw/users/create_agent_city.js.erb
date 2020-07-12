@@ -1,0 +1,22 @@
+<% if @error %>
+    <%= render 'shared/modal_hide_and_flash' %>
+<% else %>
+    <% if !@error_keys %>
+        $('#flash').html("<%= j(render 'shared/flash_messages') %>");
+        $('#agent_city_form').html("<%= j render partial: 'agent_city_form'  %>");
+        $('#list_agent_city').html("<%= j render partial: 'list_agent_city'  %>");
+    <% else %>
+        require(["/assets/rw/ujs_error_handler"],function(){
+            HandleError('cost', <%= raw @error_keys %>, <%= raw @complete_errors %>);
+        });
+    <% end %>
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});
+
+
+
+
+

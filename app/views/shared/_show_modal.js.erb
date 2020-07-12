@@ -1,0 +1,11 @@
+$('#modal_form').on('show.bs.modal', function (e) {
+    $(this).removeAttr('tabindex');
+});
+$( ".modal-content" ).draggable();
+$('#modal_form').modal('show');
+<% local_vars ||= {} %>
+var ready = function() {
+    $('#modal_content').html("<%= j(render partial: modal_partial, locals: local_vars) %>");
+    $('#modal_title').text("<%= modal_title %>");
+};
+$(document).ready(ready);

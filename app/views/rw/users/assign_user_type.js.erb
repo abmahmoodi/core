@@ -1,0 +1,15 @@
+<% if @error %>
+    <%= render 'shared/modal_hide_and_flash' %>
+<% else %>
+    $('#mobile_device').html("<%= j render 'list' %>");
+    <%= render 'shared/modal_hide_and_flash' %>
+    setTimeout(function() {
+        require(["/assets/rw/run_datatable"],function(){
+            RunDatatable('user_list');
+        });
+    }, 500);
+<% end %>
+
+require(["/assets/rw/hide_flash"],function(){
+    hideFlash();
+});

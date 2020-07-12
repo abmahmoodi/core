@@ -1,0 +1,66 @@
+<% url_value ||= '/users' %>
+<% remote_value ||= false %>
+<% method_value ||= 'post' %>
+
+<% if current_user.nil? %>
+  <h3 class="form-title font-green"><%= t(:'users.registration_title') %></h3>
+<% end %>
+<%= simple_form_for @user, url: url_value, remote: remote_value, method: method_value do |f| %>
+  <div class="form-group">
+    <label class="control-label visible-ie8 visible-ie9"><%= t(:'users.email') %></label>
+    <%= f.input :email, label: false, placeholder: t(:'users.email'), error: 'ERROR',
+                input_html: {class: 'form-control form-control-solid placeholder-no-fix'}, required: true %>
+  </div>
+  <div class="form-group">
+    <label class="control-label visible-ie8 visible-ie9"><%= t(:'users.password') %></label>
+    <%= f.input :password, label: false, placeholder: t(:'users.password'),
+                input_html: {class: 'form-control form-control-solid placeholder-no-fix'}, required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.input :password_confirmation, label: false, placeholder: t(:'users.password_confirmation'),
+                input_html: {class: 'form-control form-control-solid placeholder-no-fix'}, required: true %>
+  </div>
+
+  <%= f.input :id, label: false, as: :hidden, input_html: {value: @user.id} %>
+
+  <%= f.fields_for :profile do |p| %>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9"><%= t(:'profiles.first_name') %></label>
+      <%= p.input :first_name, label: false, placeholder: t(:'profiles.first_name'),
+                  input_html: {class: 'form-control form-control-solid placeholder-no-fix'} %>
+    </div>
+    <div class="form-group">
+      <label class="control-label visible-ie8 visible-ie9"><%= t(:'profiles.last_name') %></label>
+      <%= p.input :last_name, label: false, placeholder: t(:'profiles.last_name'),
+                  input_html: {class: 'form-control form-control-solid placeholder-no-fix'} %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <% if current_user && current_user.admin? %>
+      <%= f.input :user_type, label: false, collection: Rw::UserType.all,
+                  label_method: :persian_title, value_method: :code,
+                  input_html: {class: 'form-control'}, include_blank: false %>
+    <% else %>
+      <%= f.input :user_type, label: false, collection: Rw::UserType.where(title: 'user'),
+                  label_method: :persian_title, value_method: :code,
+                  input_html: {class: 'form-control'}, include_blank: false %>
+    <% end %>
+  </div>
+  <% if current_user && current_user.nil? %>
+    <div class="form-group">
+      <%= text_field_tag :captcha, '', id: 'captcha_input', class: 'form-control' %>
+    </div>
+    <div class="create-account">
+      <p>
+        <%= link_to(t(:'users.sign_in_title'), new_session_path) %>
+      </p>
+    </div>
+  <% end %>
+  <div class="form-actions">
+    <%= f.button :submit, t(:'buttons.save'), class: 'btn green-seagreen' %>
+  </div>
+<% end %>
+
+<script>
+    $('#captcha_input').realperson({length: 4, regenerate: 'تغییر حروف کپچا'});
+</script>

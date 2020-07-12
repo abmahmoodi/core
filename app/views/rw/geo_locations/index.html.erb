@@ -1,0 +1,33 @@
+<% title(t(:'geo_locations.main_title')) %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <span><%= t(:'geo_locations.main_title') %></span>
+      </div>
+      <div class="panel-body">
+        <%= link_to "<i class='fa fa-plus fa-lg'></i>".html_safe, rw.new_geo_location_path,
+                    remote: true,
+                    class: 'btn	btn-primary btn-sm', title: I18n.t(:'titles.new') %>
+
+        <%= link_to("<i class='fa fa-trash fa-lg'></i>".html_safe, rw.destroy_geo_path(id: '0'),
+                    method: :delete,
+                    class: 'btn btn-danger btn-sm delete-action',
+                    id: 'delete-action-geo-location',
+                    data: {confirm: t(:'messages.r_u_sure')}, remote: true, title: I18n.t(:'titles.destroy')) %>
+
+        <%= link_to("<i class='fa fa-pencil-square-o fa-lg'></i>".html_safe,
+                    rw.edit_geo_location_path(id: '0'),
+                    class: 'btn btn-primary btn-sm edit-action',
+                    id: 'edit-action-geo-location',
+                    remote: true, title: I18n.t(:'titles.edit')) %>
+        <hr/>
+        <span id="geo_location"><%= render 'list' %></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/modal' %>
+

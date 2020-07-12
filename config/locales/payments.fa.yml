@@ -1,0 +1,16 @@
+fa:
+  payments:
+    pep_title: 'پرداخت الکترونیک پاسارگاد'
+    mobile: 'شماره موبایل'
+    email: 'آدرس ایمیل'
+    amount: 'مبلغ (ریال)'
+    checkout_account: 'شماره شبای پرداخت (تسویه حساب)'
+    invoice_number: 'شناسه پرداخت'
+    invoice_date: 'تاریخ پرداخت'
+    pay: 'ورود به درگاه بانک'
+    transaction_result: 'نتیجه تراکنش'
+    track_code: 'کد پیگیری'
+    error: 'خطا'
+    messages:
+      success_transaction: 'پرداخت با موفقیت انجام شد.'
+      fail_transaction: 'پرداخت با خطا مواجه شد.'
