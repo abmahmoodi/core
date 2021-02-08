@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   # s.add_dependency 'jquery-fileupload-rails'
   s.add_dependency 'parsi-date'
   s.add_dependency 'rack-cache'
-  s.add_dependency 'carrierwave', '~> 1.0'
+  s.add_dependency 'carrierwave', '>= 1', '< 3'
   s.add_dependency 'pdfkit'
   s.add_dependency 'wkhtmltopdf-binary'
   s.add_dependency 'rest-client'
